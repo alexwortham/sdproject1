@@ -1,0 +1,76 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[ampersand]{easylist}
+\usepackage[margin=1in]{geometry}
+\newcommand\requirements{\ListProperties(Space=1ex,Space*=.5ex)}
+\author{Alex Wortham, Alex, Doug, Asanga}
+\title{Robo-mower 3000}
+\begin{document}
+
+\begin{center}
+{\LARGE Requirements}
+\end{center}
+
+\begin{easylist}[articletoc] \requirements
+
+& Project Requirements
+
+&& The total cost of the below shall not exceed \$2,500.
+&&& Labor.
+&&& Prototypes.
+&&& Final product.
+
+& Operation Requirements
+
+&& The mower must be battery powered.
+&&& The battery must be rechargeable.
+&& The mower must be autonomous as outlined in x.x
+
+& Autonomous Functions
+
+&& The mower must return to base when battery level is low.
+&&& The mower must connect to the base for recharging.
+&& Return to base on command. See x.x
+
+& Operating Environment Requirements
+
+&& The mower must be able to operate normally within an environment that
+&&& is above XX degrees Fahrenheit 
+&&& is below XX degrees Fahrenheit
+&& The mower must not become inoperable due to constant exposure to conditions within the limits specified in x.x, as well as
+&&& Rainfall not to exceed xx in/hr.
+&&& Rain accumulation not to exceed xx inches.
+
+
+
+
+&& Separate power/control systems for propulsion and blades
+&& Restricted boundaries
+&& Alarm for outside boundaries
+&& Needs to be able to cut on 25 degree incline
+&& Adjustable blade depth
+&& Base and mower needs to be ``weather" proof
+&& Mower must be started manually by physical switch
+&& needs to have recharging station
+&& Needs to be able to be recalibrated
+&& Anti theft features
+&& state display
+
+
+
+
+& Safety Requirements
+
+&& The mower must power down when...
+&&& it senses an ``undefined obstacle" (this is too vague) in its path. 
+&&& it senses moving objects entering its ``safety bubble."
+&&& an emergency kill switch on mower unit is pressed.
+&&& an emergency kill switch on the base / control panel is pressed.
+
+\end{easylist}
+
+
+\end{document}
