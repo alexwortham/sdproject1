@@ -67,52 +67,68 @@
 
 & Project Requirements
 
-&& The total cost of the below shall not exceed \$2,500.
+&& The total cost of the below shall not exceed \$2,500. //Initially I thought that ``total project cost" was too vague, but maybe this is too specific?
 &&& Labor.
 &&& Prototypes.
 &&& Final product.
+&&& Unforeseen costs.
 
 & Operation Requirements
 
 && The mower must be battery powered.
 &&& The battery must be rechargeable.
 && The mower must be autonomous as outlined in \ref{autonomous}
+&& A home base will be provided for the mower, which will serve as...
+&&& the starting point for mowing operations.
+&&& the ending point for mowing operations.
+&&& the charger for the mower.
+&& Operational safety requirements are outlined in \ref{safety}
 
-& \label{autonomous} Autonomous Functions
+& \label{autonomous} Autonomous Functions Requirements
 
 && The mower must return to base when battery level is low.
-&&& The mower must connect to the base for recharging.
+&&& The mower must connect itself to the base for recharging.
 && Return to base on command. See x.x
 
 & Operating Environment Requirements
 
-&& \label{environment} The mower must be able to operate normally within an environment that
+&& \label{environment} The product's components must be able to operate normally within an environment that
 &&& is above XX degrees Fahrenheit 
 &&& is below XX degrees Fahrenheit
-&& The mower must not become inoperable due to constant exposure to conditions within the limits specified in \ref{environment}, as well as
+&& The product's components must not become inoperable due to constant exposure to conditions within the limits specified in \ref{environment}, as well as
 &&& Rainfall not to exceed XX in/hr.
 &&& Rain accumulation not to exceed XX inches.
+&& The mower will only cut grass on level ground not to exceed 25 degrees in incline.
 
-& Safety Requirements
+& \label{safety} Safety Requirements
 
 && The mower must power down when...
 &&& it senses an ``undefined obstacle" (this is too vague) in its path. 
 &&& it senses moving objects entering its ``safety bubble."
 &&& an emergency kill switch on mower unit is pressed.
 &&& an emergency kill switch on the base / control panel is pressed.
+&& The mower will sound an alarm when removed from its configured boundaries.
+&& The mower will cease to function when removed from its configured boundaries.
+
+& Product Configuration Requirements
+
+&& All of the below may be configured one or more times.
+&& Operating boundaries
+&&& The user can set boundaries for the mower.
+&&& Boundary is defined as a line the mower will not cut grass across.
+&&& The user must configure a set of boundaries which comprise a closed shape in order for the mower to operate.
+&& Depth of cut
+&&& Defined as the the desired height of the grass after it has been cut.
+&&& Adjustable to a minimum of XX inches.
+&&& Adjustable to a maximum of XX inches.
+&&& Is accurate to plus or minus 0.XX inches.
 
 & And the Rest //Needs editing below here
 
-&& Separate power/control systems for propulsion and blades
-&& Restricted boundaries
-&& Alarm for outside boundaries
-&& Needs to be able to cut on 25 degree incline
-&& Adjustable blade depth
-&& Base and mower needs to be ``weather" proof
+&& Separate power/control systems for propulsion and blades //this is implementation
+
 && Mower must be started manually by physical switch
-&& needs to have recharging station
-&& Needs to be able to be recalibrated
-&& Anti theft features
+
 && state display
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
