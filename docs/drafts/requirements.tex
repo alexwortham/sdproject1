@@ -42,7 +42,10 @@
 % $, #, &, % are special characters in LaTeX, you must escape them with \
 % Use \$, \#, \&, \% respectively.
 % 
-% Do not use ^ or _, or if you must consult the almighty Google for help. 
+% Do not use ^ or _, or if you must consult the almighty Google for help.
+% 
+% Quotes are weird in LaTeX, ' and " produce right quotes, 
+% ` and `` produce left quotes. E.G. `single quotes' ``double quotes".
 
 \documentclass[12pt,letterpaper]{article}
 \usepackage[ampersand]{easylist}
@@ -87,9 +90,18 @@
 &&& is above XX degrees Fahrenheit 
 &&& is below XX degrees Fahrenheit
 && The mower must not become inoperable due to constant exposure to conditions within the limits specified in \ref{environment}, as well as
-&&& Rainfall not to exceed xx in/hr.
-&&& Rain accumulation not to exceed xx inches.
+&&& Rainfall not to exceed XX in/hr.
+&&& Rain accumulation not to exceed XX inches.
 
+& Safety Requirements
+
+&& The mower must power down when...
+&&& it senses an ``undefined obstacle" (this is too vague) in its path. 
+&&& it senses moving objects entering its ``safety bubble."
+&&& an emergency kill switch on mower unit is pressed.
+&&& an emergency kill switch on the base / control panel is pressed.
+
+& And the Rest //Needs editing below here
 
 && Separate power/control systems for propulsion and blades
 && Restricted boundaries
@@ -102,17 +114,6 @@
 && Needs to be able to be recalibrated
 && Anti theft features
 && state display
-
-
-
-
-& Safety Requirements
-
-&& The mower must power down when...
-&&& it senses an ``undefined obstacle" (this is too vague) in its path. 
-&&& it senses moving objects entering its ``safety bubble."
-&&& an emergency kill switch on mower unit is pressed.
-&&& an emergency kill switch on the base / control panel is pressed.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 %    EDIT ABOVE THIS    %
