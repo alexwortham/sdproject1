@@ -1,9 +1,55 @@
+% Requirements Document for Project 1
+%
+% CAUTION!!! Only edit stuff between ``EDIT BELOW THIS" and 
+% ``EDIT ABOVE THIS" unless you know what you are doing!
+%
+% Use & to set the level of the requirement. White space does not matter.
+% Lines which begin with % are comments and are not shown in the output.
+%
+% EXAMPLE:
+% & Super Awesome Requirements
+% && The product must be totally awesome
+% &&& So awesome that it will blow your mind
+%
+% Will produce something like...
+% 1  Super Awesome Requirements
+%    1.1  The product must be totally awesome
+%         1.1.1  So awesome that it will blow your mind
+%
+% When you need to reference one requirement from another, first label
+% the target requirement with \label{aName} and then you can get that
+% requirement's number with \ref{aName}. label need not occur before ref,
+% and you must compile the document TWICE to see updated references.
+%
+% EXAMPLE:
+% & \label{awesome} Super Awesome Requirements
+% && The product must be totally awesome
+% &&& So awesome that it will blow your mind 
+% & Super Cool Requirements
+% && In addition to the awesomeness described in requirement \ref{awesome}, the following coolness is required
+% &&& The product must be super cool
+%
+% Will produce something like...
+% 1  Super Awesome Requirements
+%    1.1  The product must be totally awesome
+%         1.1.1  So awesome that it will blow your mind 
+% 2  Super Cool Requirements
+%    2.1  In addition to the awesomeness described in requirement 1, the following coolness is required
+%         2.1.1  The product must be super cool
+%
+% GOTCHAS:
+%
+% $, #, &, % are special characters in LaTeX, you must escape them with \
+% Use \$, \#, \&, \% respectively.
+% 
+% Do not use ^ or _, or if you must consult the almighty Google for help. 
+
 \documentclass[12pt,letterpaper]{article}
 \usepackage[ampersand]{easylist}
 \usepackage[margin=1in]{geometry}
 \newcommand\requirements{\ListProperties(Space=1ex,Space*=.5ex)}
-\author{Alex Wortham, Alex, Doug, Asanga}
-\title{Robo-mower 3000}
+\author{Alex Wortham, Alex Chaloux, Doug Bouler, Asanga Bandara}
+\title{Requirements}
 \begin{document}
 
 \begin{center}
@@ -11,6 +57,10 @@
 \end{center}
 
 \begin{easylist}[articletoc] \requirements
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%    EDIT BELOW THIS    %
+%%%%%%%%%%%%%%%%%%%%%%%%%
 
 & Project Requirements
 
@@ -23,9 +73,9 @@
 
 && The mower must be battery powered.
 &&& The battery must be rechargeable.
-&& The mower must be autonomous as outlined in x.x
+&& The mower must be autonomous as outlined in \ref{autonomous}
 
-& Autonomous Functions
+& \label{autonomous} Autonomous Functions
 
 && The mower must return to base when battery level is low.
 &&& The mower must connect to the base for recharging.
@@ -33,14 +83,12 @@
 
 & Operating Environment Requirements
 
-&& The mower must be able to operate normally within an environment that
+&& \label{environment} The mower must be able to operate normally within an environment that
 &&& is above XX degrees Fahrenheit 
 &&& is below XX degrees Fahrenheit
-&& The mower must not become inoperable due to constant exposure to conditions within the limits specified in x.x, as well as
+&& The mower must not become inoperable due to constant exposure to conditions within the limits specified in \ref{environment}, as well as
 &&& Rainfall not to exceed xx in/hr.
 &&& Rain accumulation not to exceed xx inches.
-
-
 
 
 && Separate power/control systems for propulsion and blades
@@ -65,6 +113,10 @@
 &&& it senses moving objects entering its ``safety bubble."
 &&& an emergency kill switch on mower unit is pressed.
 &&& an emergency kill switch on the base / control panel is pressed.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%    EDIT ABOVE THIS    %
+%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{easylist}
 
