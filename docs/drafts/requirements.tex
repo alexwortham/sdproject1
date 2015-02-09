@@ -67,7 +67,7 @@
 
 & Project Requirements
 
-&& The total cost of the project including, but not limited to, the following shall not exceed \$2,500.
+&& The total cost of the project including, but not limited to, the following shall not exceed \$2,500. %( I suggest to put this idea at the very end of the document )
 &&& Labor.
 &&& Prototypes.
 &&& Final product.
@@ -79,12 +79,11 @@
 &&& The battery must be rechargeable.
 && The mower must be autonomous as outlined in requirement \ref{autonomous}.
 && The mower must be started manually.
-&& A home base will be provided for the mower, which will serve as...
+&& A home base will be provided for the mower, which will serve as...%( initial location for starting, ending and battery charging.) ( I suggest to remove the following bulleting. ) 
 &&& the starting point for mowing operations.
 &&& the ending point for mowing operations.
 &&& the charger for the mower's batteries.
-&& Operational safety requirements are outlined in requirement \ref{safety}.
-
+&& Operational safety requirements are outlined in requirement \ref{safety}.%// I think this is repeating. As Dr. Birdwell said, we don’t want to repeat ( Lecture 04- slide 10) we are writing about the safety under another requirement, therefore, we don’t want to mention it here. 
 & \label{user interaction} User Interaction Requirements
 
 && The user may issue the following commands to the mower.
@@ -93,7 +92,7 @@
 &&& Stop immediately, as specified in requirement \ref{stop}.
 &&& Return to base, as specified in requirement \ref{rtb}.
 
-&& The base will provide the following state information to the user.
+&& The base will provide the following state information to the user. % do we need to specify like this for this document ? 
 && Current battery level in percentage.
 && Battery is charging.
 && Battery has completed charging.
@@ -109,15 +108,15 @@
 && \label{rtb} Return to base.
 &&& The mower must immediately disengage cutting device.
 &&& The mower must navigate to base.
-&&& The mower must connect itself to the charger.
+&&& The mower must connect itself to the charger. % I think this is too specific, if we can remove this part from the requirement for right now. 
 && \label{stop} Stop immediately.
 &&& The mower must immediately disengage cutting device.
 &&& The mower must brake to a complete stop.
 &&& The mower must cut all power.
-&& \label{map} Map terrain.
+&& \label{map} Map terrain.		
 &&& ... \\ % double backslash causes an immediate line break
 \vdots %remove this line when done
-&& \label{begin} Begin mowing.
+&& \label{begin} Begin mowing.	% i think this part don't need
 &&& ... \\% double backslash causes an immediate line break
 \vdots %remove this line when done
 
@@ -127,7 +126,7 @@
 &&& is above XX degrees Fahrenheit
 &&& is below XX degrees Fahrenheit
 && The product's components must not become inoperable due to constant exposure to conditions within the limits specified in requirement \ref{environment}.
-&& The mower will comply with the following standards for ``weather proofing."
+&& The mower will comply with the following standards for ``weather proofing." % I think this data is not necessary for this documents. this is not a customer's specific requirement we can talk about this in later documents.
 &&& Standard XXX. 
 &&& Standard YYY.
 &&& Standard ZZZ.
@@ -144,7 +143,7 @@
 &&& it senses an ``undefined obstacle" in its path.
 &&& it senses moving objects entering its ``safety bubble."
 &&& an emergency kill switch on mower unit is pressed.
-&&& an emergency kill switch on the base / control panel is pressed.
+&&& an emergency kill switch on the base / control panel is pressed. %( I think these two have the same idea. I suggest only one about emergency operation ) 
 && The mower will sound an alarm when removed from its configured boundaries.
 && The mower will cease to function when removed from its configured boundaries.
 
@@ -167,7 +166,7 @@
 &&& At least 98\% of the configured area (requirement \ref{boundaries}) has been cut, not including areas subject to limitations outlined in requirements \ref{incline limits} and \ref{spatial limits}.
 &&& The height of the grass which has been cut is accurate to plus or minus 0.XX inches of the desired height (requirement \ref{desired height}).
 
-% This part is edited by Asanga %
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 %    EDIT ABOVE THIS    %
