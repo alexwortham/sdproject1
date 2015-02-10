@@ -65,106 +65,70 @@
 %    EDIT BELOW THIS    %
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
-& Project Requirements
-
-&& The total cost of the project including, but not limited to, the following shall not exceed \$2,500. %( I suggest to put this idea at the very end of the document )
-&&& Labor.
-&&& Prototypes.
-&&& Final product.
-&&& Unforeseen costs.
-
 & Operation Requirements
 
 && The mower must be battery powered.
 &&& The battery must be rechargeable.
 && The mower must be autonomous as outlined in requirement \ref{autonomous}.
-&& The mower must be started manually.
-&& A home base will be provided for the mower, which will serve as...%( initial location for starting, ending and battery charging.) ( I suggest to remove the following bulleting. ) 
-&&& the starting point for mowing operations.
-&&& the ending point for mowing operations.
-&&& the charger for the mower's batteries.
-&& Operational safety requirements are outlined in requirement \ref{safety}.%// I think this is repeating. As Dr. Birdwell said, we don’t want to repeat ( Lecture 04- slide 10) we are writing about the safety under another requirement, therefore, we don’t want to mention it here. 
+&& A home base will be provided for the mower.
+
 & \label{user interaction} User Interaction Requirements
 
 && The user may issue the following commands to the mower.
 &&& Begin mowing operations, as specified in requirement \ref{begin}.
-&&& Map terrain, as specified in requirement \ref{map}.
 &&& Stop immediately, as specified in requirement \ref{stop}.
 &&& Return to base, as specified in requirement \ref{rtb}.
 
-&& The base will provide the following state information to the user. % do we need to specify like this for this document ? 
-&& Current battery level in percentage.
-&& Battery is charging.
-&& Battery has completed charging.
-&& Battery level is low.
-&&& Battery level is considered to be low when the mower cannot complete its operation before power is exhausted.
-&& Mowing operation is in progress.
-&& Mower operation has been forcefully stopped because of a violation in  requirements outlined in requirements \ref{environment} and \ref{safety}.
-&&& If the mower has been stopped, the cause of the stop.
+&& The following state information will be provided to the user. % do we need to specify like this for this document ? 
+&&& Current battery level.
+&&& Battery is charging.
+&&& Battery has completed charging.
+&&& Mowing operation is in progress.
+&&& Mower operation has been forcefully stopped because of a violation in  requirements outlined in \ref{environment} and \ref{safety}.
+&& Schedule configuration.
 
 & \label{autonomous} Autonomous Functions Requirements
 
-&& The mower must return to base when battery level is low.
-&& \label{rtb} Return to base.
-&&& The mower must immediately disengage cutting device.
-&&& The mower must navigate to base.
-&&& The mower must connect itself to the charger. % I think this is too specific, if we can remove this part from the requirement for right now. 
-&& \label{stop} Stop immediately.
-&&& The mower must immediately disengage cutting device.
-&&& The mower must brake to a complete stop.
-&&& The mower must cut all power.
-&& \label{map} Map terrain.		
-&&& ... \\ % double backslash causes an immediate line break
-\vdots %remove this line when done
-&& \label{begin} Begin mowing.	% i think this part don't need
-&&& ... \\% double backslash causes an immediate line break
-\vdots %remove this line when done
+&& The mower must return to base when it detects low battery level.
+&& \label{rtb}Return to base on command from interface.
+&& \label{stop}Stop immediately on command from interface.
+&& \label{begin}Begin mowing on command from interface.
+&& Begin mowing on schedule.
 
 & \label{environment} Operating Environment Requirements
 
 && The product's components must be able to operate normally within an environment that
-&&& is above XX degrees Fahrenheit
-&&& is below XX degrees Fahrenheit
+&&& is above 25 degrees Fahrenheit
+&&& is below 115 degrees Fahrenheit
+&&& Max wind
+&&& Water proofing... go back to what I had... or find standard
 && The product's components must not become inoperable due to constant exposure to conditions within the limits specified in requirement \ref{environment}.
-&& The mower will comply with the following standards for ``weather proofing." % I think this data is not necessary for this documents. this is not a customer's specific requirement we can talk about this in later documents.
-&&& Standard XXX. 
-&&& Standard YYY.
-&&& Standard ZZZ.
-&& \label{incline limits} The mower will only traverse ground which it detects is less than 33\% incline as measured across its wheel base (from center to center of the wheels).
-&& \label{spatial limits} The mower will only traverse spaces which it detects to be greater than
-&&& XX inches in length.
-&&& XX inches in width.
-&&& XX inches in height.
+&& \label{incline limits} The mower will only traverse ground which it detects is less than 33\% incline.
+&& IP Code 25 (IP25)
 
 & \label{safety} Safety Requirements
 
 && The mower must stop immediately (requirement \ref{stop}) when...
-% this is too vague.
+% These requirements need to be refined.
 &&& it senses an ``undefined obstacle" in its path.
 &&& it senses moving objects entering its ``safety bubble."
-&&& an emergency kill switch on the base / control panel is pressed. %( I think these two have the same idea. I suggest only one about emergency requirement  ) 
-&& The mower will sound an alarm when removed from its \centeringonfigured boundaries.
+&&& an emergency kill switch is pressed.
+&& The mower will sound an alarm when removed from its configured boundaries.
 && The mower will cease to function when removed from its configured boundaries.
 
 & Product Configuration Requirements
 
 && All of the below must be configurable one or more times.
-&& \label{boundaries} Operating boundaries
-&&& The user can set boundaries for the mower.
-&&& Boundary is defined as a line the mower will not cut grass across.
-&&& The user must configure a set of boundaries which comprise a closed shape in order for the mower to operate.
-&& \label{desired height} Desired height of grass after cut.
-&&& Must be measurable by the mower.
-&&& Must be adjustable to a minimum of XX inches.
-&&& Must be adjustable to a maximum of XX inches.
+&&& \label{boundaries}The user can set operating boundaries for the mower.
+&&& \label{desired height}The user can set desired height of grass.
 
-& Mowing Requirements
+& Project Requirements
 
-&& A mowing operation will be complete when the following conditions are met.
-% I think it's really difficult to put an exact percentage on this... Sure it's testable but guaranteeing a firm percentage might be dangerous.
-&&& At least 98\% of the configured area (requirement \ref{boundaries}) has been cut, not including areas subject to limitations outlined in requirements \ref{incline limits} and \ref{spatial limits}.
-&&& The height of the grass which has been cut is accurate to plus or minus 0.XX inches of the desired height (requirement \ref{desired height}).
-
+&& The total cost of the project including, but not limited to, the following shall not exceed \$2,500.
+&&& Labor.
+&&& Prototypes.
+&&& Final product.
+&&& Unforeseen costs.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
