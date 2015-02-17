@@ -1,0 +1,34 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{requirements}
+
+\def\team#1{\gdef\@team{#1}}
+\def\@team{\@latex@warning@no@line{No \noexpand\team given}}
+\def\customer#1{\gdef\@customer{#1}}
+\def\@customer{\@latex@warning@no@line{No \noexpand\customer given}}
+
+\newcommand\reqstitlepage{%
+\clearpage
+\thispagestyle{empty}
+~\vspace{1in}
+\begin{center}
+\vspace{1in}
+{\LARGE \@title} \par\vspace{3ex}
+{\large \@date} \par\vspace{3ex}
+{\large Team \@team} \par\vspace{1ex}
+\@author \par\vspace{3ex}
+{\large Customer} \par\vspace{1ex}
+\@customer
+\end{center}
+\clearpage
+}
+
+\newcommand\requirements{\ListProperties(Space=1ex,Space*=.5ex)}
+
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=Blue
+}
+
+\endinput

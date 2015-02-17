@@ -50,30 +50,15 @@
 \documentclass[12pt,letterpaper]{article}
 \usepackage[ampersand]{easylist}
 \usepackage[margin=1in]{geometry}
-\newcommand\requirements{\ListProperties(Space=1ex,Space*=.5ex)}
+\usepackage{requirements}
 \author{Alex Chaloux, Alex Wortham, Asanga Bandara, Doug Bouler}
 \title{Needs and Requirements Specification}
-% Enter team number here, access it with \team later.
-\newcommand{\team}{1} 
-% Enter customer name here, access it with \customer later.
-\newcommand{\customer}{Vasile Tudor Garbulet}
+\team{1}
+\customer{Vasile Tudor Garbulet}
 \begin{document}
 
 % Custom Title Page
-\makeatletter
-~\vspace{1in}
-\begin{center}
-\vspace{1in}
-{\LARGE \@title} \par\vspace{3ex}
-{\large \@date} \par\vspace{3ex}
-{\large Team \team} \par\vspace{1ex}
-\@author \par\vspace{3ex}
-{\large Customer} \par\vspace{1ex}
-\customer
-\end{center}
-\makeatother
-\thispagestyle{empty}
-\newpage
+\reqstitlepage
 \setcounter{page}{1}
 
 % Intro
@@ -130,22 +115,26 @@ Intro goes here.
 
 & \label{environment}Operating Environment Requirements
 
-	&& The product's components must be able to operate normally within an environment that
+	&& The product must be able to operate normally within an environment that
 
-		&&& is above 25 degrees Fahrenheit
-		&&& is below 115 degrees Fahrenheit
+		&&& is above 32 degrees Fahrenheit.
+		&&& is below 115 degrees Fahrenheit.
+		&&& \label{incline limits}has ground which the mower detects is less than 33\% incline.
+		&&& has no snow accumulation.
+		&&& has no ice accumulation.
 
-	&& The product's components must not become inoperable due to constant exposure to conditions within the limits specified in requirement \ref{environment}.
-	&& \label{incline limits}The mower will only traverse ground which it detects is less than 33\% incline.
-	&& The product's electrical components must be protected by a NEMA Type 3R enclosure.
-	&& The product's components must comply with International Protection Marketing Code 25 (IP25).
+& \label{weather}Weather Resistance Requirements.
+	
+	&& The product's electrical components must be protected by a NEMA Type 3R enclosure. (\href{https://www.nema.org/Products/Documents/nema-enclosure-types.pdf}{https://www.nema.org/Products/Documents/nema-enclosure-types.pdf})
+	&& The product's components must comply with International Protection Marketing Code 25 (IP25. \href{http://www.dsmt.com/pdf/resources/iprating.pdf}{http://www.dsmt.com/pdf/resources/iprating.pdf}).
 
-& \label{safety} Safety Requirements
+& \label{safety}Safety Requirements
 
 	&& The mower must stop immediately (requirement \ref{stop}) when...
 
 		% These requirements need to be refined.
-		&&& it senses an foreign object in its path.
+		&&& it senses an foreign object in its path. 
+			&&&& A foreign object is any object small enough that the mower might be capable of running over it, such as garden hoses, small gardening tools, tennis balls, etc.
 		&&& an emergency kill switch is pressed.
 
 	&& The mower will sound an alarm when removed from its configured boundaries.
@@ -194,6 +183,7 @@ Summary goes here.
 
 % Customer agreement
 \newpage
+\thispagestyle{empty}
 \section*{Customer Agreement}
 
 The undersigned customer agrees that the requirements outlined in this document meet his or her needs for the product.
