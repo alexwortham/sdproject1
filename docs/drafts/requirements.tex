@@ -51,13 +51,38 @@
 \usepackage[ampersand]{easylist}
 \usepackage[margin=1in]{geometry}
 \newcommand\requirements{\ListProperties(Space=1ex,Space*=.5ex)}
-\author{Alex Wortham, Alex Chaloux, Doug Bouler, Asanga Bandara}
-\title{Requirements}
+\author{Alex Chaloux, Alex Wortham, Asanga Bandara, Doug Bouler}
+\title{Needs and Requirements Specification}
+% Enter team number here, access it with \team later.
+\newcommand{\team}{1} 
+% Enter customer name here, access it with \customer later.
+\newcommand{\customer}{Vasile Tudor Garbulet}
 \begin{document}
 
+% Custom Title Page
+\makeatletter
+~\vspace{1in}
 \begin{center}
-{\LARGE Requirements}
+\vspace{1in}
+{\LARGE \@title} \par\vspace{3ex}
+{\large \@date} \par\vspace{3ex}
+{\large Team \team} \par\vspace{1ex}
+\@author \par\vspace{3ex}
+{\large Customer} \par\vspace{1ex}
+\customer
 \end{center}
+\makeatother
+\thispagestyle{empty}
+\newpage
+\setcounter{page}{1}
+
+% Intro
+\section*{Introduction}
+
+Intro goes here.
+
+% Requirements Section
+\section*{Requirements}
 
 \begin{easylist}[articletoc] \requirements
 
@@ -109,7 +134,6 @@
 
 		&&& is above 25 degrees Fahrenheit
 		&&& is below 115 degrees Fahrenheit
-		&&& Max wind ???
 
 	&& The product's components must not become inoperable due to constant exposure to conditions within the limits specified in requirement \ref{environment}.
 	&& \label{incline limits}The mower will only traverse ground which it detects is less than 33\% incline.
@@ -156,5 +180,25 @@
 
 \end{easylist}
 
+% Need
+\section*{Need}
 
+Why does your customer want this product?
+
+Why would others want this product?
+
+% Summary
+\section*{Summary}
+
+Summary goes here.
+
+% Customer agreement
+\newpage
+\section*{Customer Agreement}
+
+The undersigned customer agrees that the requirements outlined in this document meet his or her needs for the product.
+
+~\par\vspace{.5in}
+\par\noindent\makebox[2.5in]{\hrulefill} \hfill\makebox[2.0in]{\hrulefill}
+\par\noindent\makebox[2.5in][l]{Customer} \hfill\makebox[2.0in][l]{Date}
 \end{document}
