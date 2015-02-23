@@ -60,6 +60,7 @@
 
 % Custom Title Page
 \reqstitlepage
+\doublespacing
 
 % Intro
 \section*{Introduction}
@@ -111,7 +112,9 @@ The objective of this project is to design and create an autonomous device capab
 
 	&& The mower must return to base when it detects low battery level.
 	&& \label{rtb}Return to base on command from interface.
-	&& \label{stop}Stop immediately on command from interface.
+	&& \label{stop}Stop immediately on command from interface. The following conditions define the stopped state.
+		&&& Electrical power is disconnected from the wheels.
+		&&& Electrical power is disconnected from the blades.
 	&& \label{begin}Begin mowing on command from interface.
 	&& Begin mowing on schedule.
 
@@ -122,8 +125,8 @@ The objective of this project is to design and create an autonomous device capab
 		&&& is above 32 degrees Fahrenheit.
 		&&& is below 115 degrees Fahrenheit.
 		&&& \label{incline limits}has ground which the mower detects is less than 33\% incline.
-		&&& has no snow accumulation.
-		&&& has no ice accumulation.
+	&& The device will function as specified when it is not in contact with snow.
+	&& The device will function as specified when it is not in contact with ice.
 
 & \label{weather}Weather Resistance Requirements.
 	
@@ -138,9 +141,9 @@ The objective of this project is to design and create an autonomous device capab
 		&&& it senses an foreign object in its path. 
 			&&&& A foreign object is any object small enough that the mower might be capable of running over it, such as garden hoses, small gardening tools, tennis balls, etc.
 		&&& an emergency kill switch is pressed.
+		&&& removed from its configured boundaries.
 
 	&& The mower will sound an alarm when removed from its configured boundaries.
-	&& The mower will cease to function when removed from its configured boundaries.
 
 & Product Configuration Requirements
 
