@@ -1,0 +1,202 @@
+% Requirements Document for Project 1
+%
+% CAUTION!!! Only edit stuff between ``EDIT BELOW THIS" and
+% ``EDIT ABOVE THIS" unless you know what you are doing!
+%
+% Use & to set the level of the requirement. White space does not matter.
+% Lines which begin with % are comments and are not shown in the output.
+%
+% EXAMPLE:
+% & Super Awesome Requirements
+% && The product must be totally awesome
+% &&& So awesome that it will blow your mind
+%
+% Will produce something like...
+% 1  Super Awesome Requirements
+%    1.1  The product must be totally awesome
+%         1.1.1  So awesome that it will blow your mind
+%
+% When you need to reference one requirement from another, first label
+% the target requirement with \label{aName} and then you can get that
+% requirement's number with \ref{aName}. label need not occur before ref,
+% and you must compile the document TWICE to see updated references.
+%
+% EXAMPLE:
+% & \label{awesome} Super Awesome Requirements
+% && The product must be totally awesome
+% &&& So awesome that it will blow your mind
+% & Super Cool Requirements
+% && In addition to the awesomeness described in requirement \ref{awesome}, the following coolness is required
+% &&& The product must be super cool
+%
+% Will produce something like...
+% 1  Super Awesome Requirements
+%    1.1  The product must be totally awesome
+%         1.1.1  So awesome that it will blow your mind
+% 2  Super Cool Requirements
+%    2.1  In addition to the awesomeness described in requirement 1, the following coolness is required
+%         2.1.1  The product must be super cool
+%
+% GOTCHAS:
+%
+% $, #, &, % are special characters in LaTeX, you must escape them with \
+% Use \$, \#, \&, \% respectively.
+%
+% Do not use ^ or _, or if you must consult the almighty Google for help.
+%
+% Quotes are weird in LaTeX, ' and " produce right quotes,
+% ` and `` produce left quotes. E.G. `single quotes' ``double quotes".
+
+\documentclass[12pt,letterpaper]{article}
+\usepackage[ampersand]{easylist}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{requirements}
+\author{Alex Chaloux, Alex Wortham, Asanga Bandara, Doug Bouler}
+\title{Final Report}
+\team{1}
+\customer{Vasile Tudor Garbulet}
+\begin{document}
+
+% Custom Title Page
+\reqstitlepage
+\setstretch{2}
+
+\tableofcontents
+\clearpage
+
+% Intro
+\section{Executive Summary}
+
+
+The objective of this project is to design and create an autonomous device capable of cutting a customer’s grass within specifications outlined in the requirements section of this document. Autonomous mowers currently exist, but have little ability to detect or avoid fixtures in the lawn without extensive time spent laying boundary wires during installation. This is a tedious process and one that must be done any time a fixture in the yard is moved. Our goal is to develop a safer, more reliable device capable of being installed with minimal exertion from the customer at a lower cost than our competitors. 
+
+% Requirements Section
+\section{Requirements}
+
+\begin{easylist}[articletoc] \requirements
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%    EDIT BELOW THIS    %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+& Operation Requirements
+
+	&& The mower must be battery powered.
+
+		&&& The battery must be rechargeable.
+
+	&& The mower must be autonomous as outlined in requirement \ref{autonomous}.
+	&& A home base will be provided for the mower.
+
+
+& \label{user interaction}User Interaction Requirements
+
+	&& The user may issue the following commands to the mower.
+
+		&&& Begin mowing operations, as specified in requirement \ref{begin}.
+		&&& Stop immediately, as specified in requirement \ref{stop}.
+		&&& Return to base, as specified in requirement \ref{rtb}.
+
+	&& The following state information will be provided to the user.
+
+		&&& Current battery level.
+		&&& Battery is charging.
+		&&& Battery has completed charging.
+		&&& Mowing operation is in progress.
+		&&& Desired grass height.
+		&&& Days of week the mower is scheduled to run.
+		&&& Time of each day the mower is scheduled to run.
+		&&& Mower operation has been forcefully stopped because of a violation in requirements outlined in \ref{environment} and \ref{safety}.
+
+	
+& \label{autonomous}Autonomous Functions Requirements
+
+	&& The mower must return to base when it detects low battery level.
+	&& \label{rtb}Return to base on command from interface.
+	&& \label{stop}Stop immediately on command from interface. The following conditions define the stopped state.
+		&&& Electrical power is disconnected from the wheels.
+		&&& Electrical power is disconnected from the blades.
+	&& \label{begin}Begin mowing on command from interface.
+	&& Begin mowing on schedule.
+
+& \label{environment}Operating Environment Requirements
+
+	&& The product must be able to operate normally within an environment that
+
+		&&& is above 32 degrees Fahrenheit.
+		&&& is below 115 degrees Fahrenheit.
+		&&& \label{incline limits}has ground which the mower detects is less than 33\% incline.
+	&& The device will function as specified when it is not in contact with snow.
+	&& The device will function as specified when it is not in contact with ice.
+
+& \label{weather}Weather Resistance Requirements.
+	
+	&& The product's electrical components must be protected by a NEMA Type 3R enclosure. (\href{https://www.nema.org/Products/Documents/nema-enclosure-types.pdf}{https://www.nema.org/Products/Documents/nema-enclosure-types.pdf})
+	&& The product's components must comply with International Protection Marketing Code 25 (IP25. \href{http://www.dsmt.com/pdf/resources/iprating.pdf}{http://www.dsmt.com/pdf/resources/iprating.pdf}).
+
+& \label{safety}Safety Requirements
+
+	&& The mower must stop immediately (requirement \ref{stop}) when...
+
+		% These requirements need to be refined.
+		&&& it senses an foreign object in its path. 
+			&&&& A foreign object is any object small enough that the mower might be capable of running over it, such as garden hoses, small gardening tools, tennis balls, etc.
+		&&& an emergency kill switch is pressed.
+		&&& removed from its configured boundaries.
+
+	&& The mower will sound an alarm when removed from its configured boundaries.
+
+& Product Configuration Requirements
+
+	&& All of the below must be configurable one or more times.
+
+		&&& \label{boundaries}The user can set operating boundaries for the mower.
+		&&& \label{desired height}The user can set desired height of grass.
+		&&& The days of week the mower will run.
+
+			&&&& Multiple days may be selected.
+
+		&&& The time of day the mower will run.
+
+			&&&& One time must be selected for each day.
+
+& Budget Requirements
+
+	&& The total cost of the project including, but not limited to, the following shall not exceed \$2,500.  % Here We can say,insted of having project cost, "The total cost of the product would be less than $2,500." ( something like that) 
+		&&& Labor.
+		&&& Prototypes.
+		&&& Final product.
+		&&& Unforeseen costs.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%    EDIT ABOVE THIS    %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{easylist}
+
+% Change Log
+\section{Change Log}
+
+Our customer desires a more cost-effective, more sustainable, and less expensive product that can be used to cut a bounded section of grass. Our customer wants the device to be a user-friendly, configurable device that is safe for both his lawn fixtures as well as any foreign objects that are introduced to the cutting area. Our customer needs this product to be able to withstand weather conditions common to Knoxville, as outlined in the requirements section of this document. The disabled, elderly, and lazy all are in need of this type of device. Companies that maintain large properties or use non-autonomous devices for lawn maintenance would be able to purchase this type of device to meet their lawn care needs without paying another company to service properties on their behalf. 
+
+% Summary
+\section{Design Process}
+
+The goal of this project is to design and develop a device capable of properly maintaining a residential lawn with high precision and high accuracy. This device should meet the safety standards as documented in the requirements section of this document. This device needs to be inexpensive while preserving its effectiveness. The product should withstand mild precipitation, temperature fluctuations, and must be able to operate effectively in these conditions. This product appeals to a large market due to the convenience of having a device capable of effective, consistent lawn care without the anxiety of supervising or constantly maintaining the device. 
+
+\section{Lessons Learned}
+
+\section{Team Member Contributions}
+
+% Customer agreement
+\newpage
+\section{Customer Agreement}
+
+The undersigned customer agrees that the requirements outlined in this document meet his or her needs for the product.
+
+% Generate sign and date fields
+\signanddate{Customer}
+
+\end{document}
