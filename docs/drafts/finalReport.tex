@@ -1,84 +1,46 @@
-% Requirements Document for Project 1
-%
-% CAUTION!!! Only edit stuff between ``EDIT BELOW THIS" and
-% ``EDIT ABOVE THIS" unless you know what you are doing!
-%
-% Use & to set the level of the requirement. White space does not matter.
-% Lines which begin with % are comments and are not shown in the output.
-%
-% EXAMPLE:
-% & Super Awesome Requirements
-% && The product must be totally awesome
-% &&& So awesome that it will blow your mind
-%
-% Will produce something like...
-% 1  Super Awesome Requirements
-%    1.1  The product must be totally awesome
-%         1.1.1  So awesome that it will blow your mind
-%
-% When you need to reference one requirement from another, first label
-% the target requirement with \label{aName} and then you can get that
-% requirement's number with \ref{aName}. label need not occur before ref,
-% and you must compile the document TWICE to see updated references.
-%
-% EXAMPLE:
-% & \label{awesome} Super Awesome Requirements
-% && The product must be totally awesome
-% &&& So awesome that it will blow your mind
-% & Super Cool Requirements
-% && In addition to the awesomeness described in requirement \ref{awesome}, the following coolness is required
-% &&& The product must be super cool
-%
-% Will produce something like...
-% 1  Super Awesome Requirements
-%    1.1  The product must be totally awesome
-%         1.1.1  So awesome that it will blow your mind
-% 2  Super Cool Requirements
-%    2.1  In addition to the awesomeness described in requirement 1, the following coolness is required
-%         2.1.1  The product must be super cool
-%
-% GOTCHAS:
-%
-% $, #, &, % are special characters in LaTeX, you must escape them with \
-% Use \$, \#, \&, \% respectively.
-%
-% Do not use ^ or _, or if you must consult the almighty Google for help.
-%
-% Quotes are weird in LaTeX, ' and " produce right quotes,
-% ` and `` produce left quotes. E.G. `single quotes' ``double quotes".
-
 \documentclass[12pt,letterpaper]{article}
 \usepackage[ampersand]{easylist}
 \usepackage[margin=1in]{geometry}
-\usepackage{setspace}
 \usepackage{requirements}
-\author{Alex Chaloux, Alex Wortham, Asanga Bandara, Doug Bouler}
+\bibliography{Bibliography.bib}
+%% @DocumentRequirement (1.1,"Title")
 \title{Final Report}
+%% @DocumentRequirement (1.3,"Team #")
 \team{1}
+%% @DocumentRequirement (1.4,"Team Members")
+\author{Alex Chaloux, Alex Wortham, Asanga Bandara, Doug Bouler}
+%% @DocumentRequirement (1.5,"Customer")
 \customer{Vasile Tudor Garbulet}
+
 \begin{document}
 
-% Custom Title Page
+%% @DocumentRequirement (1,"Title Page")
+%% @DocumentRequirement (1.2,"Date")
 \reqstitlepage
-\setstretch{2}
 
+%% @DocumentRequirement (2,"Table of Contents")
 \tableofcontents
 \clearpage
+\setstretch{2}
 
-% Intro
+%% @DocumentRequirement (3,"Executive Summary")
 \section{Executive Summary}
 
+%% @DocumentRequirement (3.1,"Concise statement of the need addressed and the project's goals.")
+%% @DocumentRequirement (3.2,"Summary of the results and whether the goals were met.")
+%% @DocumentRequirement (3.3,"Brief Discussion of challenges and outcomes.")
 
-The objective of this project is to design and create an autonomous device capable of cutting a customer’s grass within specifications outlined in the requirements section of this document. Autonomous mowers currently exist, but have little ability to detect or avoid fixtures in the lawn without extensive time spent laying boundary wires during installation. This is a tedious process and one that must be done any time a fixture in the yard is moved. Our goal is to develop a safer, more reliable device capable of being installed with minimal exertion from the customer at a lower cost than our competitors. 
+3.1 Concise statement of the need addressed and the project's goals.
 
-% Requirements Section
+3.2 Summary of the results and whether the goals were met.
+
+3.3 Brief Discussion of challenges and outcomes.
+
+%% @DocumentRequirement (4,"Requirements")
 \section{Requirements}
 
+%% @DocumentRequirement (4.1,"Numbered list of requirements initially agreed to by team and customer.")
 \begin{easylist}[articletoc] \requirements
-
-%%%%%%%%%%%%%%%%%%%%%%%%%
-%    EDIT BELOW THIS    %
-%%%%%%%%%%%%%%%%%%%%%%%%%
 
 & Operation Requirements
 
@@ -169,34 +131,75 @@ The objective of this project is to design and create an autonomous device capab
 		&&& Final product.
 		&&& Unforeseen costs.
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%
-%    EDIT ABOVE THIS    %
-%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \end{easylist}
 
-% Change Log
+%% @DocumentRequirement (5,"Change Log")
 \section{Change Log}
 
-Our customer desires a more cost-effective, more sustainable, and less expensive product that can be used to cut a bounded section of grass. Our customer wants the device to be a user-friendly, configurable device that is safe for both his lawn fixtures as well as any foreign objects that are introduced to the cutting area. Our customer needs this product to be able to withstand weather conditions common to Knoxville, as outlined in the requirements section of this document. The disabled, elderly, and lazy all are in need of this type of device. Companies that maintain large properties or use non-autonomous devices for lawn maintenance would be able to purchase this type of device to meet their lawn care needs without paying another company to service properties on their behalf. 
+%% @DocumentRequirement (5.1,"Chronological list of any agreed-upon changes to the requirements.")
+5.1 Chronological list of \textit{any} agreed-upon changes to the requirements.
 
-% Summary
+%% @DocumentRequirement (6,"Documentation of the Design Process")
 \section{Design Process}
 
-The goal of this project is to design and develop a device capable of properly maintaining a residential lawn with high precision and high accuracy. This device should meet the safety standards as documented in the requirements section of this document. This device needs to be inexpensive while preserving its effectiveness. The product should withstand mild precipitation, temperature fluctuations, and must be able to operate effectively in these conditions. This product appeals to a large market due to the convenience of having a device capable of effective, consistent lawn care without the anxiety of supervising or constantly maintaining the device. 
+%% @DocumentRequirement (6.1,"Narrative describing how the design proceeded from analysis of the requirements to final result.")
+%% @DocumentRequirement (6.1.1,"Describe how the effort was decomposed into manageable pieces to address the agreed-upon requirements.")
+%% @DocumentRequirement (6.1.2,"What open questions had to be answered by research?")
+%% @DocumentRequirement (6.1.3,"What alternatives were explored?")
+%% @DocumentRequirement (6.1.4,"Describe the selected solution.")
+%% @DocumentRequirement (6.1.5,"How did the team ensure that all requirements were met (to the extent that they were)?")
+%% @DocumentRequirement (6.1.6,"How was the work at each phase (requirements, design, implementation, testing & evaluation) verified against the outcomes of prior phases?")
+%% @DocumentRequirement (6.1.7,"Describe the results and/or outcomes of the project.")
 
+6.1 Narrative describing how the design proceeded from analysis of the requirements to \textit{final result}.
+
+6.1.1 Describe how the effort was decomposed into manageable pieces to address the agreed-upon requirements.
+
+6.1.2 What open questions had to be answered by research?
+
+6.1.3 What alternatives were explored?
+
+6.1.4 Describe the selected solution.
+
+6.1.5 How did the team ensure that all requirements were met (to the extent that they were)?
+
+6.1.6 How was the work at each phase (requirements, design, implementation, testing \& evaluation) verified against the outcomes of prior phases?
+
+6.1.7 Describe the results and/or outcomes of the project.
+
+%% @DocumentRequirement (7,"Lessons Learned")
 \section{Lessons Learned}
 
+%% @DocumentRequirement (7.1,"Describe what went wrong or unexpected events and how the team adapted to these.")
+%% @DocumentRequirement (7.2,"What would the team like to see done differently in future projects?")
+
+7.1 Describe what went wrong or unexpected events and how the team adapted to these.
+
+7.2 What would the team like to see done differently in future projects?
+
+%% @DocumentRequirement (8,"Statement of Team Member's Contributions")
 \section{Team Member Contributions}
 
-% Customer agreement
+%% @DocumentRequirement (8.1,"Describe the responsibilities of each team member.")
+%% @DocumentRequirement (8.2,"Describe the contributions of each team member.")
+
+8.1 Describe the responsibilities of each team member.
+
+8.2 Describe the contributions of each team member.
+%% @DocumentRequirement (9,"Signatures of all Team Members and Customer.")
 \newpage
 \section{Customer Agreement}
 
-The undersigned customer agrees that the requirements outlined in this document meet his or her needs for the product.
+%% @DocumentRequirement (9.1,"Names, signatures, and dates.")
 
-% Generate sign and date fields
-\signanddate{Customer}
+The undersigned agree that the requirements outlined in this document meet all needs for the product.
+
+\signanddate{Vasile T. Garbulet}
+\signanddate{Asanga Bandara}
+\signanddate{Doug Bouler}
+\signanddate{Alex Chaloux}
+\signanddate{F. Alex Wortham}
+
+%% @DocumentRequirement (9.2,"Dissenting statements (signed) -- if any.")
 
 \end{document}
