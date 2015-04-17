@@ -12,30 +12,134 @@
 \setstretch{2}
 \setcounter{page}{1}
 
-Our team thoroughly enjoyed tackling the design challenge of creating an autonomous mower posed to us by our customer, Vasile Tudor Garbulet. The diversity of academic disciplines in our group created the ideal conditions for the design process.  We put our minds together and came up with some truly amazing ideas, and then took a step back and went with more realistically achievable ideas.  Even after some compromises, we are confident that our design for an autonomous mower brings innovative new features to the market.  Upon analysis of the requirements, we decided that the requirements fell into one of three categories:  user interaction, autonomous functions, and operating environment.
+Our team thoroughly enjoyed tackling the design challenge of creating an
+autonomous mower posed to us by our customer, Vasile Tudor Garbulet. The
+diversity of academic disciplines in our group created the ideal conditions for
+the design process.  We put our minds together and came up with some truly
+amazing ideas, and then took a step back and went with more realistically
+achievable ideas.  Even after some compromises, we are confident that our design
+for an autonomous mower brings innovative new features to the market.  Upon
+analysis of the requirements, we decided that the requirements fell into one of
+three categories:  user interaction, autonomous functions, and operating
+environment.
 
-Our primary concern was to make user interaction with the product minimal and free of frustration.  Thus our discussions began with the question, how do we want the user to interact with our product?  This question shaped our thinking as we approached the rest of the requirements.  The primary issue that came to light in researching our competitors was product configuration.  Every product currently on the market uses some form of boundary wires for configuration which must be installed in very strict ways for proper operation of the product.  Next on the list was obstacle detection and avoidance.  To our great surprise, no competitors on the market have obstacle detection other than simple collision sensors.  
+Our primary concern was to make user interaction with the product minimal and
+free of frustration.  Thus our discussions began with the question, how do we
+want the user to interact with our product?  This question shaped our thinking
+as we approached the rest of the requirements.  The primary issue that came to
+light in researching our competitors was product configuration.  Every product
+currently on the market uses some form of boundary wires for configuration which
+must be installed in very strict ways for proper operation of the product.  Next
+on the list was obstacle detection and avoidance.  To our great surprise, no
+competitors on the market have obstacle detection other than simple collision
+sensors.
 
-The greatest impact of this lack of features is on the user.  The user must spend a significant amount of time on product installation, and must clear the area of all obstacles before each mowing cycle.  We quickly arrived at the conclusion that this lack of features was due to a lack of intelligent autonomous design in existing products.  Thus it became clear that in order to relieve the user from these burdens we needed to focus our efforts on developing an intelligent autonomous design capable of tackling these issues. 
+The greatest impact of this lack of features is on the user.  The user must
+spend a significant amount of time on product installation, and must clear the
+area of all obstacles before each mowing cycle.  We quickly arrived at the
+conclusion that this lack of features was due to a lack of intelligent
+autonomous design in existing products.  Thus it became clear that in order to
+relieve the user from these burdens we needed to focus our efforts on developing
+an intelligent autonomous design capable of tackling these issues.
 
-We knew that if we could meet our objective with the autonomous design that the remaining categories would pose comparatively less challenge in research and development.  Nevertheless there were still some important issues that needed to be addressed. All technological issues aside, we were lost when it came to the issue of cutting grass.  We needed to know what type of blade would best suit our design, knowing that this choice would have a major impact upon safety concerns.  And finally, what standards can we implement for weather proofing? 
+We knew that if we could meet our objective with the autonomous design that the
+remaining categories would pose comparatively less challenge in research and
+development.  Nevertheless there were still some important issues that needed to
+be addressed. All technological issues aside, we were lost when it came to the
+issue of cutting grass.  We needed to know what type of blade would best suit
+our design, knowing that this choice would have a major impact upon safety
+concerns.  And finally, what standards can we implement for weather proofing?
 
-With these issues in mind we were able to develop a clear division of labor.  We divided up our efforts into the categories of user experience, autonomous design, and mechanical design.  Our lead software developer, Alex Wortham, in cooperation with solutions architect, Alex Chaloux, took responsibility of evaluating various autonomous solutions and their implications on user experience.  Our team lead and hardware designer, Doug Bouler, looked into the impacts that the mechanical design would have on our electronics platforms as well as the implementation of these two.  These members' success was facilitated by our skilled lead researcher and hardware tester, Asanga Bandara, who also assisted all of us in our tasks.
+With these issues in mind we were able to develop a clear division of labor.  We
+divided up our efforts into the categories of user experience, autonomous
+design, and mechanical design.  Our lead software developer, Alex Wortham, in
+cooperation with solutions architect, Alex Chaloux, took responsibility of
+evaluating various autonomous solutions and their implications on user
+experience.  Our team lead and hardware designer, Doug Bouler, looked into the
+impacts that the mechanical design would have on our electronics platforms as
+well as the implementation of these two.  These members' success was facilitated
+by our skilled lead researcher and hardware tester, Asanga Bandara, who also
+assisted all of us in our tasks.
 
-Of the many questions posed by these challenges, we were most perplexed by how we would simplify product configuration.  Configuration of our competitor's products takes in the order of hours, and it was our goal to reduce the configuration process to the order of minutes.  The key to solving this complex problem was solving the considerably more complex problem of high precision localization of a mobile robotics platform.  Research efforts quickly revealed there is no de facto standard for localization, and furthermore that there is no simple solution to this highly complex problem.  
+Of the many questions posed by these challenges, we were most perplexed by how
+we would simplify product configuration.  Configuration of our competitor's
+products takes in the order of hours, and it was our goal to reduce the
+configuration process to the order of minutes.  The key to solving this complex
+problem was solving the considerably more complex problem of high precision
+localization of a mobile robotics platform.  Research efforts quickly revealed
+there is no de facto standard for localization, and furthermore that there is no
+simple solution to this highly complex problem.
 
-Research turned up dozens of scholarly and IEEE papers detailing solutions with varying levels of success but generally poor precision.  Precision localization of our product is absolutely vital to compete with the precision of the boundary wire solution.  Finally we found a solution which can be adapted to achieve the necessary level of precision without adding high costs. \autocite{mobilegps}  We believe that by supplementing the odometry found in this method with accelerometers and gyroscopes we can achieve significantly improved drift compensation. Granted this ability for high precision localization, we arrived at a simple configuration process that relies on recording the robot's locations along a path traversed in a user assisted learning mode.
+Research turned up dozens of scholarly and IEEE papers detailing solutions with
+varying levels of success but generally poor precision.  Precision localization
+of our product is absolutely vital to compete with the precision of the boundary
+wire solution.  Finally we found a solution which can be adapted to achieve the
+necessary level of precision without adding high costs. \autocite{mobilegps}  We
+believe that by supplementing the odometry found in this method with
+accelerometers and gyroscopes we can achieve significantly improved drift
+compensation. Granted this ability for high precision localization, we arrived
+at a simple configuration process that relies on recording the robot's locations
+along a path traversed in a user assisted learning mode.
 
-Our next line of questioning was regarding obstacle avoidance.  What are the best methods of obstacle detection?  Which methods can be implemented within our cost constraints?  We considered options such as computer vision, infrared, ultrasonic, and simple mechanical sensors.  Each of these options present their own challenges, especially in outdoors environments.  Computer vision and infrared both rely upon certain characteristic properties of light reflecting off of obstacles in their detection range.  These properties are too easily impacted by changes in lighting conditions which are inherent to outdoors environments, making it difficult to implement a solution which can provide consistent detection.  
+Our next line of questioning was regarding obstacle avoidance.  What are the
+best methods of obstacle detection?  Which methods can be implemented within our
+cost constraints?  We considered options such as computer vision, infrared,
+ultrasonic, and simple mechanical sensors.  Each of these options present their
+own challenges, especially in outdoors environments.  Computer vision and
+infrared both rely upon certain characteristic properties of light reflecting
+off of obstacles in their detection range.  These properties are too easily
+impacted by changes in lighting conditions which are inherent to outdoors
+environments, making it difficult to implement a solution which can provide
+consistent detection.
 
-Our preliminary research suggests that ultrasonic sensors will be able to provide the most consistent obstacle detection.  Simple mechanical sensors alone have proven to be insufficient by our competitors. Even so our design will most likely incorporate some form of mechanical sensors as a fallback detection system, but more research on the shortcomings of ultrasonic sensors will be required in order to assess what the best supplemental detection system would be.  
+Our preliminary research suggests that ultrasonic sensors will be able to
+provide the most consistent obstacle detection.  Simple mechanical sensors alone
+have proven to be insufficient by our competitors. Even so our design will most
+likely incorporate some form of mechanical sensors as a fallback detection
+system, but more research on the shortcomings of ultrasonic sensors will be
+required in order to assess what the best supplemental detection system would
+be.
 
-Another area of concern was the selection of a cutting blade which is effective and safe.  Most existing autonomous products use a fixed blade system similar to those found on most human operated mowers, and thereby inherit the same safety concerns.  In our research we determined that this definitely is not the focus area of innovation for autonomous mowers. The \textit{Husqvarna Automower}\autocite{automower} however stands out with an innovative blade design which, if allowed by applicable intellectual property laws, we would borrow upon for our own design.
+Another area of concern was the selection of a cutting blade which is effective
+and safe.  Most existing autonomous products use a fixed blade system similar to
+those found on most human operated mowers, and thereby inherit the same safety
+concerns.  In our research we determined that this definitely is not the focus
+area of innovation for autonomous mowers. The \textit{Husqvarna
+Automower}\autocite{automower} however stands out with an innovative blade
+design which, if allowed by applicable intellectual property laws, we would
+borrow upon for our own design.
 
-Weather proofing is a difficult subject with any product, as nothing can be truly weather \textit{proof}.  In a search for a more reasonable, testable set of requirements for weather \textit{resistance}, we sought out publicized industry standards to suit our product's needs.  Research led us to two widely accepted standards published by the National Electrical Manufacturers Association (NEMA) and the International Electrotechnical Commission (IEC).  The two standards which most appropriately suit our needs are NEMA Enclosure Type 3R\autocite{nema3r}, and IEC International Protection Marking (IP) Code 25.\autocite{ip25}  These standards comprise a set of specifications which should more than suitably cover our customer's initial requirement, ``It must be able to survive in Knoxville, TN, weather."
+Weather proofing is a difficult subject with any product, as nothing can be
+truly weather \textit{proof}.  In a search for a more reasonable, testable set
+of requirements for weather \textit{resistance}, we sought out publicized
+industry standards to suit our product's needs.  Research led us to two widely
+accepted standards published by the National Electrical Manufacturers
+Association (NEMA) and the International Electrotechnical Commission (IEC).  The
+two standards which most appropriately suit our needs are NEMA Enclosure Type
+3R\autocite{nema3r}, and IEC International Protection Marking (IP) Code
+25.\autocite{ip25}  These standards comprise a set of specifications which
+should more than suitably cover our customer's initial requirement, ``It must be
+able to survive in Knoxville, TN, weather."
 
-Blades spinning at high RPMs undeniably pose significant safety risks.  Our requirements dictate that we must protect animate objects like humans and pets from these blades and other potential hazards presented by any mower.  We had to address questions about what measures the mower will take when approached by people or animals.  A requirement is for the mower to power down when it encounters a violation in its safety parameters.  Ideally, the blades will brake to a stop such that an over turned mower could not harm objects entering the blade's cutting area.  
+Blades spinning at high RPMs undeniably pose significant safety risks.  Our
+requirements dictate that we must protect animate objects like humans and pets
+from these blades and other potential hazards presented by any mower.  We had to
+address questions about what measures the mower will take when approached by
+people or animals.  A requirement is for the mower to power down when it
+encounters a violation in its safety parameters.  Ideally, the blades will brake
+to a stop such that an over turned mower could not harm objects entering the
+blade's cutting area.
 
-Building a safe, cost-effective, easy to use autonomous mower poses a significant design challenge.  We as a team have put together an outline for an ideal product that rises to the challenge, and sought to incorporate these ideals into our design process.  Though it was initially a daunting task, diligent research and cohesive teamwork brought to fruition a practical design for an autonomous mower.  We sought to keep the design as simple as possible while still meeting our requirements to maintain a realistic design based on proven technologies wherever possible.  We seek to innovate primarily in the area of user experience by developing a more intelligent autonomous mower that is easily configurable, requires minimal maintenance, and operates safely in a somewhat dynamic environment without the need for supervision.
+Building a safe, cost-effective, easy to use autonomous mower poses a
+significant design challenge.  We as a team have put together an outline for an
+ideal product that rises to the challenge, and sought to incorporate these
+ideals into our design process.  Though it was initially a daunting task,
+diligent research and cohesive teamwork brought to fruition a practical design
+for an autonomous mower.  We sought to keep the design as simple as possible
+while still meeting our requirements to maintain a realistic design based on
+proven technologies wherever possible.  We seek to innovate primarily in the
+area of user experience by developing a more intelligent autonomous mower that
+is easily configurable, requires minimal maintenance, and operates safely in a
+somewhat dynamic environment without the need for supervision.
 
 \end{document}

@@ -143,23 +143,95 @@
 \section{Design Process}
 
 %% @DocumentRequirement (6.1,"Narrative describing how the design proceeded from analysis of the requirements to final result.")
+
 %% @DocumentRequirement (6.1.1,"Describe how the effort was decomposed into manageable pieces to address the agreed-upon requirements.")
+With these issues in mind we were able to develop a clear division of labor.  We
+divided up our efforts into the categories of user experience, autonomous
+design, and mechanical design.  Our lead software developer, Alex Wortham, in
+cooperation with solutions architect, Alex Chaloux, took responsibility of
+evaluating various autonomous solutions and their implications on user
+experience.  Our team lead and hardware designer, Doug Bouler, looked into the
+impacts that the mechanical design would have on our electronics platforms as
+well as the implementation of these two.  These members' success was facilitated
+by our skilled lead researcher and hardware tester, Asanga Bandara, who also
+assisted all of us in our tasks.
+
 %% @DocumentRequirement (6.1.2,"What open questions had to be answered by research?")
 %% @DocumentRequirement (6.1.3,"What alternatives were explored?")
+Of the many questions posed by these challenges, we were most perplexed by how
+we would simplify product configuration.  Configuration of our competitor's
+products takes in the order of hours, and it was our goal to reduce the
+configuration process to the order of minutes.  The key to solving this complex
+problem was solving the considerably more complex problem of high precision
+localization of a mobile robotics platform.  Research efforts quickly revealed
+there is no de facto standard for localization, and furthermore that there is no
+simple solution to this highly complex problem.
+
+Research turned up dozens of scholarly and IEEE papers detailing solutions with
+varying levels of success but generally poor precision.  Precision localization
+of our product is absolutely vital to compete with the precision of the boundary
+wire solution.  Finally we found a solution which can be adapted to achieve the
+necessary level of precision without adding high costs. \autocite{mobilegps}  We
+believe that by supplementing the odometry found in this method with
+accelerometers and gyroscopes we can achieve significantly improved drift
+compensation. Granted this ability for high precision localization, we arrived
+at a simple configuration process that relies on recording the robot's locations
+along a path traversed in a user assisted learning mode.
+
+Our next line of questioning was regarding obstacle avoidance.  What are the
+best methods of obstacle detection?  Which methods can be implemented within our
+cost constraints?  We considered options such as computer vision, infrared,
+ultrasonic, and simple mechanical sensors.  Each of these options present their
+own challenges, especially in outdoors environments.  Computer vision and
+infrared both rely upon certain characteristic properties of light reflecting
+off of obstacles in their detection range.  These properties are too easily
+impacted by changes in lighting conditions which are inherent to outdoors
+environments, making it difficult to implement a solution which can provide
+consistent detection.
+
+Our preliminary research suggests that ultrasonic sensors will be able to
+provide the most consistent obstacle detection.  Simple mechanical sensors alone
+have proven to be insufficient by our competitors. Even so our design will most
+likely incorporate some form of mechanical sensors as a fallback detection
+system, but more research on the shortcomings of ultrasonic sensors will be
+required in order to assess what the best supplemental detection system would
+be.
+
+Another area of concern was the selection of a cutting blade which is effective
+and safe.  Most existing autonomous products use a fixed blade system similar to
+those found on most human operated mowers, and thereby inherit the same safety
+concerns.  In our research we determined that this definitely is not the focus
+area of innovation for autonomous mowers. The \textit{Husqvarna
+Automower}\autocite{automower} however stands out with an innovative blade
+design which, if allowed by applicable intellectual property laws, we would
+borrow upon for our own design.
+
+Weather proofing is a difficult subject with any product, as nothing can be
+truly weather \textit{proof}.  In a search for a more reasonable, testable set
+of requirements for weather \textit{resistance}, we sought out publicized
+industry standards to suit our product's needs.  Research led us to two widely
+accepted standards published by the National Electrical Manufacturers
+Association (NEMA) and the International Electrotechnical Commission (IEC).  The
+two standards which most appropriately suit our needs are NEMA Enclosure Type
+3R\autocite{nema3r}, and IEC International Protection Marking (IP) Code
+25.\autocite{ip25}  These standards comprise a set of specifications which
+should more than suitably cover our customer's initial requirement, ``It must be
+able to survive in Knoxville, TN, weather."
+
 %% @DocumentRequirement (6.1.4,"Describe the selected solution.")
+
+Describe the solution.
+
+\begin{description}
+\item[From Wortham] DGPS and learning mode.
+\item[From Chaloux] Ultrasonic sensors and obstacle avoidance.
+\item[From Bouler] Solar power.
+\item[From Bandara] Motors and batteries.
+\end{description} 
 %% @DocumentRequirement (6.1.5,"How did the team ensure that all requirements were met (to the extent that they were)?")
 %% @DocumentRequirement (6.1.6,"How was the work at each phase (requirements, design, implementation, testing & evaluation) verified against the outcomes of prior phases?")
 %% @DocumentRequirement (6.1.7,"Describe the results and/or outcomes of the project.")
 
-6.1 Narrative describing how the design proceeded from analysis of the requirements to \textit{final result}.
-
-6.1.1 Describe how the effort was decomposed into manageable pieces to address the agreed-upon requirements.
-
-6.1.2 What open questions had to be answered by research?
-
-6.1.3 What alternatives were explored?
-
-6.1.4 Describe the selected solution.
 
 6.1.5 How did the team ensure that all requirements were met (to the extent that they were)?
 
@@ -171,19 +243,42 @@
 \section{Lessons Learned}
 
 %% @DocumentRequirement (7.1,"Describe what went wrong or unexpected events and how the team adapted to these.")
+
+We were fortunate enough to avoid any major mishaps throughout the project. In
+forming our group it was important to all of us that our team remain small.
+Delightfully our team of four has personalities that mesh well, and that has
+enabled us to function as a cohesive unit with no internal strife.
 %% @DocumentRequirement (7.2,"What would the team like to see done differently in future projects?")
+If there is anything that could be improved upon we would have to choose
+communication.  The four of us recognize that we each lead our own busy lives,
+and as such we respect the fact that important emails or texts may occaisonally
+go unanswered.
 
-7.1 Describe what went wrong or unexpected events and how the team adapted to these.
-
-7.2 What would the team like to see done differently in future projects?
 
 %% @DocumentRequirement (8,"Statement of Team Member's Contributions")
 \section{Team Member Contributions}
 
 %% @DocumentRequirement (8.1,"Describe the responsibilities of each team member.")
+Our team lead is Doug Bouler. Doug is in charge of coordinating group
+meetings, dividing up labor on assignments, maintaining contact with our
+customer, and ensuring that deadlines are met.  Alex Wortham stepped up to the
+plate to ensure that all of our group's written deliverables met the
+requirements of the assignments.  His experience in \LaTeX\ was invaluable in
+ensuring that our documents complied with the given style requirements.  The
+decision to adopt \LaTeX\ for all of our project documentation was highly
+conducive to the use of source control.  With that in mind Wortham set up and
+maintained a Github project to host our documentation and allow for easy
+collaboration as well as peace of mind that our documentation was safely backed
+up in many locations.  These administrative roles aside, our team does not
+believe in the strict assignment of roles to individuals.  When it comes to the
+meat of all our work every member has contributed to all aspects of the project.
+Through the use of this approach to our work we found the diversity in our
+academic disciplines contributed to better outcomes than the work we were
+capable of producing individually. 
+
 %% @DocumentRequirement (8.2,"Describe the contributions of each team member.")
 
-8.1 Describe the responsibilities of each team member.
+
 
 8.2 Describe the contributions of each team member.
 %% @DocumentRequirement (9,"Signatures of all Team Members and Customer.")
