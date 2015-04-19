@@ -37,6 +37,7 @@
 
 3.3 Brief Discussion of challenges and outcomes.
 
+\clearpage
 %% @DocumentRequirement (4,"Requirements")
 \section{Requirements}
 
@@ -143,7 +144,36 @@
 %% @DocumentRequirement (6,"Documentation of the Design Process")
 \section{Design Process}
 
-%% @DocumentRequirement (6.1,"Narrative describing how the design proceeded from analysis of the requirements to final result.")
+% % @DocumentRequirement (6.1,"Narrative describing how the design proceeded
+% from analysis of the requirements to final result.")
+Upon analysis of the requirements, we decided that the requirements fell into
+one of three categories:  user interaction, autonomous functions, and operating
+environment.  Of these three categories, our primary concern was to make user
+interaction with the product minimal and free of frustration.  Thus our
+discussions began with the question, how do we want the user to interact with
+our product?  This question shaped our thinking as we approached the rest of the
+requirements.  The primary issue that came to light in researching our
+competitors was product configuration.  Every product currently on the market
+uses some form of boundary wires for configuration which must be installed in
+very strict ways for proper operation of the product.  Next on the list was
+obstacle detection and avoidance.  To our great surprise, no competitors on the
+market have obstacle detection other than simple collision sensors.
+
+The greatest impact of this lack of features is on the user.  The user must
+spend a significant amount of time on product installation, and must clear the
+area of all obstacles before each mowing cycle.  We quickly arrived at the
+conclusion that this lack of features was due to a lack of intelligent
+autonomous design in existing products.  Thus it became clear that in order to
+relieve the user from these burdens we needed to focus our efforts on developing
+ an intelligent autonomous design capable of tackling these issues.
+
+We knew that if we could meet our objective with the autonomous design that the
+remaining categories would pose comparatively less challenge in research and
+development.  Nevertheless there were still some important issues that needed to
+be addressed. All technological issues aside, we were lost when it came to the
+issue of cutting grass.  We needed to know what type of blade would best suit
+our design, knowing that this choice would have a major impact upon safety
+concerns.  And finally, what standards can we implement for weather proofing?
 
 %% @DocumentRequirement (6.1.1,"Describe how the effort was decomposed into manageable pieces to address the agreed-upon requirements.")
 With these issues in mind we were able to develop a clear division of labor.  We
@@ -220,15 +250,98 @@ should more than suitably cover our customer's initial requirement, ``It must be
 able to survive in Knoxville, TN, weather."
 
 %% @DocumentRequirement (6.1.4,"Describe the selected solution.")
+\subsection{Detailed Description of Individual Solutions}
+Now to talk a little bit more in detail about how all of this is supposed to
+come together we must first look more closely at our chosen solutions for power,
+configuration, navigation, and drive components. 
 
-Describe the solution.
+\subsubsection{Power}
+Solar power.
 
-\begin{description}
-\item[From Wortham] DGPS and learning mode.
-\item[From Chaloux] Ultrasonic sensors and obstacle avoidance.
-\item[From Bouler] Solar power.
-\item[From Bandara] Motors and batteries.
-\end{description} 
+\subsubsection{Configuration}
+
+Our chosen solution for configuration of the product guides the user through a
+simple process.  Once learning mode has been enabled from the user
+interface, the mower will guide the user through an iterative process.
+\begin{enumerate}
+  \item Guide the mower around the absolute boundaries of an area to mow.
+  
+  		The mower will be propelled under its own power, and the user will only need
+  		to steer the mower by a push bar similar to an ordinary self propelled push
+  		mower.  The only requirement for successful configuration is that the path
+  		traversed by the user must be closed, meaning that the process will end when
+  		the user arrives back at the position from which they began.  The user will
+  		be notified by the mower when the path has been closed.
+  		
+  \item Guide the mower around any areas which are enclosed by the area to be
+  mowed which should not be mowed.
+  
+  		The general use case for this is to guide the mower around large, permanent
+  		obstacles inside the area to mow.  After completing the first step, users
+  		will be prompted to outline these obstacles.  After placing the mower at the
+  		edge of the obstacle, the user will push a button to begin path tracing. 
+  		Once again, the mower must be guided in a closed path around the obstacle. 
+  		The user will be notified when the path has been closed.
+  
+  \item (Optional) Add reachably disjoint areas to be mowed.
+  
+        A reachably disjoint area is an area which is not connected to any other area,
+        but there exists a path by which the mower can reach it without
+        assistance.  If a reachably disjoint area exists, the user
+        may add the area by repeating steps 1 - 2, and then initiate a process to trace the path the mower
+        will use to cross between disjoint areas.
+        
+  \item (Optional) Add unreachably disjoint areas to be mowed.
+  
+        Areas which are unreachably disjoint, meaning it is impossible for the
+        mower to navigate between them without assistance, may be defined by
+        repeating the above steps. The user will be notified during the mowing
+        process when the mower needs assistance to reach these additional areas.
+\end{enumerate}
+
+\subsubsection{Navigation}
+
+To faciliate this configuration process highly precise localization is needed.
+Our answer to this problem is a custom solution fusing multiple existing
+technologies to achieve accuracies within ten centimeters.  The basic idea for
+our solution is derived from a differential GPS (DGPS) solution presented at
+\textit{The Australian Conference on Robotics and Automation}.  This paper
+entitled ``High Precision GPS Guidance of Mobile Robots'' details a unqiue
+method of localization which ``\ldots\ gathers raw measurement data from two
+[low cost] receivers and compares carrier phase data to obtain accuracies
+normally associated with the much more costly Real Time Kinematics (RTK)
+systems.''\autocite{mobilegps}  This however is not a complete solution to
+localization because of the latencies associated with acquiring signal data
+from low cost receivers.  
+
+Some form of fallback guidance must take control
+during the acquisition periods and any periods in which a location cannot be
+acquired.  The solution presented in this paper uses odometry, measuring the
+current speed of travel, to interpolate intermediary location data.  The problem
+with this is that any slippage of the wheels introduces significant error
+which cannot be corrected until the next location is acquired from GPS.
+Our proposed solution to this is to use a combination of accelerometers and
+gyroscopes for interpolating location data.  These sensors can be acquired for
+very low cost, and even in a package which combines readings from the two into
+acceleration vectors that can be read by a microcontroller such as an Arduino. 
+These readings can be read at X frequency, which will present almost
+instantaneous changes in the acceleration vectors that can be used to greatly
+reduce error introduced by the slippage problem.
+  
+During the configuration process location data acquired from our custom
+localization solution will be recorded to internal storage in learning mode, and
+will be used during the mowing process to help the mower navigate through its
+configured area.  It is widely known that in machine learning systems even the
+smallest change in the environment can render the machine incapable of
+completing the task it was trained to do.  In order to combat this problem, we
+need to incorporate a sophistaced obstacle avoidance system to help the mower
+navigate around obstacles which were not defined during the configuration
+process.
+\subsubsection{Obstacle Avoidance}
+Ulrasonic.
+\subsubsection{Drive Components}
+Uh whatever.
+
 %% @DocumentRequirement (6.1.5,"How did the team ensure that all requirements were met (to the extent that they were)?")
 %% @DocumentRequirement (6.1.6,"How was the work at each phase (requirements, design, implementation, testing & evaluation) verified against the outcomes of prior phases?")
 %% @DocumentRequirement (6.1.7,"Describe the results and/or outcomes of the project.")
