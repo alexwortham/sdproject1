@@ -4,3 +4,7 @@
 *.gz
 *.out
 *.toc
+*.bbl
+*.bcf
+*.xml
+*.blg

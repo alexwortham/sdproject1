@@ -1,8 +1,9 @@
-\documentclass[12pt,letterpaper]{article}
+\documentclass[11pt,letterpaper]{article}
 \usepackage[ampersand]{easylist}
 \usepackage[margin=1in]{geometry}
 \usepackage{requirements}
 \usepackage{float}
+\usepackage{amsmath}
 \bibliography{Bibliography.bib}
 %% @DocumentRequirement (1.1,"Title")
 \title{Final Report}
@@ -31,11 +32,10 @@
 %% @DocumentRequirement (3.2,"Summary of the results and whether the goals were met.")
 %% @DocumentRequirement (3.3,"Brief Discussion of challenges and outcomes.")
 
-3.1 Concise statement of the need addressed and the project's goals.
+Our customer approached us with a need for an autonomous device capable of safely and reliably cutting his grass. Our project goals were simple and flexible. This device would need to be easily configurable and require little maintenance. The device needs to be outside for several months out of the year and therefore must be weatherproof. The mowing device must have the capability to communicate wirelessly with a base component.  Another requirement was that the device needed to have foreign object detection capabilities as well as at least one method of obstacle avoidance. A major component of this project was the insistence that this device needed to be electrically powered as well as rechargeable.
 
-3.2 Summary of the results and whether the goals were met.
+Our team encountered many challenges in developing this device. First, we needed a way to identify foreign objects in the path of the mower. After considering various detection options, we decided that ultrasonic detection was the most responsive for outdoor, energy-efficient detection. Next, we needed a way to navigate the mower within inches of predetermined path. We immediately decided that GPS was going to be a highly considered method for navigating this device. Unfortunately, standard GPS is not reliable for precise measurements. Typically, these measurements can only be accurate to within a three meter radius. After researching different methods of localization, we found a method described as differential GPS. By using two standard, inexpensive GPS units we would be able to achieve reliable localization within a few centimeters. This method is described in further detail later. In order to weatherproof the base and mower devices, we found international standards which would encompass the protection of electronics against water damage. Cutting the grass was a seemingly insignificant part of this project, but it was a component that we did not take lightly. We researched several common blade types and decided upon a method which uses small, pivoting blades within a rotating disc. This method significantly reduces weight and allows a secondary method of obstacle avoidance which is explained further in this report.
 
-3.3 Brief Discussion of challenges and outcomes.
 
 \clearpage
 %% @DocumentRequirement (4,"Requirements")
@@ -256,7 +256,18 @@ come together we must first look more closely at our chosen solutions for power,
 configuration, navigation, and drive components. 
 
 \subsubsection{Power}
-Solar power.
+When considering the methods of recharging the battery of our mower, we decided to first look at our competition's methods. Upon inspection, we realized that all major autonomous mower-base designs required that the base be connected by an electrical cord to an outdoor outlet. Our team decided that the presence of sharp, rotating machinery coupled with a current-carrying wire was both an electrical hazard as well as an enormous inconvenience to the user. After considering other options, we decided that solar power, even in ambient light would be sufficient for our purposes.\autocite{radiometry} Ambient light, even in shadow or on cloudy days, has been shown to provide enough photons to a photovoltaic cell to charge a battery given enough time to recharge. Because this machine will only be operating every few days, the solar cell will have more than enough time to recharge the battery. For example, a cloudy day provides approximately 5000 lux of illuminance.
+ 
+\begin{figure}[h!]
+\[
+	\dfrac{w}{m^2} \approx \dfrac{lux}{683}
+\]
+\caption{Illuminance Equation}
+\end{figure}
+
+With a square meter solar panel, we can generate around 8 Watts per hour under severe circumstances. Both batteries would be able to be fully charged within three days if the weather remained extremely cloudy. On a bright, sunny day, which would provide up to 100,000 lux, both batteries could be charged within just a few hours. We recommend that the customer places the base in a place that has a high exposure to sunlight, but in the case that the mower is not receiving enough power, we will provide a secondary mode of charging through a standard electrical connection.
+
+We decided that a battery with roughly 168Wh power capacity was sufficient for the operation of our mowing device and that a battery with roughly 84Wh would be satisfactory for our base battery. We needed the battery on the base component to be able to power both the GPS as well as the interface and any communication between the mower and the base. With our selected mower battery, we would have at least three hours of operation given that the terrain was not strenuous to the driving motors. 
 
 \subsubsection{Configuration}
 
