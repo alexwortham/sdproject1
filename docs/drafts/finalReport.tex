@@ -257,8 +257,7 @@ those found on most human operated mowers, and thereby inherit the same safety
 concerns.  In our research we determined that this definitely is not the focus
 area of innovation for autonomous mowers. The \textit{Husqvarna
 Automower}\autocite{automower} however stands out with an innovative blade
-design which, if allowed by applicable intellectual property laws, we would
-borrow upon for our own design.
+design that reduces damage done to objects that come into contact with the blades which we would borrow upon for our own design.
 
 Weather proofing is a difficult subject with any product, as nothing can be
 truly weather \textit{proof}.  In a search for a more reasonable, testable set
@@ -276,7 +275,7 @@ able to survive in Knoxville, TN, weather."
 \subsection{Detailed Description of Individual Solutions}
 Now to talk a little bit more in detail about how all of this is supposed to
 come together we must first look more closely at our chosen solutions for power,
-configuration, navigation, and drive components. 
+configuration, navigation, obstacle avoidance, and drive components. 
 
 \subsubsection{Power}
 When considering the methods of recharging the battery of our mower, we decided
@@ -309,8 +308,8 @@ has a high exposure to sunlight, but in the case that the mower is not receiving
 enough power, we will provide a secondary mode of charging through a standard
 electrical connection.
 
-We decided that a battery with roughly 168Wh power capacity was sufficient for
-the operation of our mowing device and that a battery with roughly 84Wh would be
+We decided that a battery with roughly 84Wh power capacity was sufficient for
+the operation of our mowing device and that a battery with roughly 60Wh would be
 satisfactory for our base battery. We needed the battery on the base component
 to be able to power both the GPS as well as the interface and any communication
 between the mower and the base. With our selected mower battery, we would have
@@ -383,8 +382,7 @@ Our proposed solution to this is to use a combination of accelerometers and
 gyroscopes for interpolating location data.  These sensors can be acquired for
 very low cost, and even in a package which combines readings from the two into
 acceleration vectors that can be read by a microcontroller such as an Arduino. 
-These readings can be read at X frequency, which will present almost
-instantaneous changes in the acceleration vectors that can be used to greatly
+These readings will present almost instantaneous changes in the acceleration vectors that can be used to greatly
 reduce error introduced by the slippage problem.
   
 During the configuration process location data acquired from our custom
@@ -443,14 +441,7 @@ less total damage, allowing for a safer mowing device.
 
 \subsubsection{Drive Components}
 
-We have chosen to use two independently driven electric motors to power the rear
-wheels.  This will give the mower zero-turn steering capabilities which will
-allow it to reach areas with tight corners.  In order to select the right motors
-for this application we needed to consider specifications for torque, power,
-speed, and weight.  After evaluating the types of motors that are available, we
-decided that direct current (DC) brushless gearmotors with planetary gearing
-were best suited for this application.  Planetary gear motors have several
-advantages over their counterparts.
+We have chosen to use two independently driven electric motors to power the rear wheels.  This will give the mower zero-turn steering capabilities which will allow it to reach areas with tight corners.  In order to select the right motors for this application we needed to consider specifications for torque, power, speed, and weight. In particular, the design and functionality of our product necessitate that the motors be strong yet small in order to ensure that the product runs efficiently. After evaluating the types of motors that are available, we found that planetary gear motors have several advantages over their counterparts, including those detailed in the bulleted list below. Because of these advantages, we decided that direct current (DC) brushless gearmotors with planetary gearing were best suited for this application. 
 \begin{singlespace}
 \begin{itemize}
   \item Compact size and weight, allowing them to be up to 50\% smaller with the
@@ -584,8 +575,6 @@ Final Poster & Writers & Wortham \\
 Final Paper & Writers & All \\
 \cline{2-3}
 & Editors  & All \\
-\cline{2-3}
-& Graphics	& All \\
 \hline
 \end{tabular}
 \caption{Team Member Contributions}
